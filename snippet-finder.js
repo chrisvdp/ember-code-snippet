@@ -19,29 +19,8 @@ function findFiles(srcDir) {
   });
 }
 
-function extractSnippets(fileContent) {
-  var inside = false;
-  var content = [];
-  var output = {};
-  var name;
-  fileContent.split("\n").forEach(function(line){
-    if (inside) {
-      if (/\bEND-SNIPPET\b/.test(line)) {
-        inside = false;
-        output[name] = content.join("\n");
-        content = [];
-      } else {
-        content.push(line);
-      }
-    } else {
-      var m = /\bBEGIN-SNIPPET\s+(\S+)\b/.exec(line);
-      if (m) {
-        inside = true;
-        name = m[1];
-      }
-    }
-  });
-  return output;
+function extractSnippets(fileContent) { 
+  return fileContent;
 }
 
 
